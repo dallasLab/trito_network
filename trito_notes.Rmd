@@ -71,4 +71,4 @@ $$
 $$$$\frac{dV_I}{dt} = bH_IV_S - \delta V_I - \mu_V V_I$$
 
 
-Here, the human hosts ($H$) are being infected by infected vectors ($V$). We assume that the host population and vector population are constant in the absence of interventions ($H_S + H_I + H_R = N$). The $\wedge$ then indicates that 
+Here, the human hosts ($H$) are being infected by infected vectors ($V$). We assume that the host population and vector population are constant in the absence of interventions ($H_S + H_I + H_R = N$). The $\wedge$ describes the birth rate.
