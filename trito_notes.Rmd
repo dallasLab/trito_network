@@ -55,10 +55,7 @@ If I want to calculate the R0 at each node, then I must be able to simulate an i
 
 $$
 $$$$\frac{dH_S}{dt} = \wedge - \beta H_S V_I - \mu H_S
-$$
-
-$$
-$$$$\frac{dH_I}{dt} = \beta H_S V_I - \gamma H_I - \mu H_I
+$$ $$$\frac{dH_I}{dt} = \beta H_S V_I - \gamma H_I - \mu H_I
 $$
 
 $$
@@ -68,7 +65,18 @@ $$
 $$$$\frac{dV_S}{dt} =\Delta - bH_IV_S - \mu_V V_S$$
 
 $$
-$$$$\frac{dV_I}{dt} = bH_IV_S - \delta V_I - \mu_V V_I$$
+$$$$\frac{dV_I}{dt} = bH_IV_S - \mu_V V_I$$
 
+Here, the human hosts ($H$) are being infected by infected vectors ($V$). We assume that the host population and vector population are constant in the absence of interventions ($H_S + H_I + H_R = N$). The $\wedge$ describes the birth rate in the human host population and $\mu$ should equal $\wedge = \mu N$. $\beta$ is the infection rate of the human host by the infected vector and we assume the law of mass action.
 
-Here, the human hosts ($H$) are being infected by infected vectors ($V$). We assume that the host population and vector population are constant in the absence of interventions ($H_S + H_I + H_R = N$). The $\wedge$ describes the birth rate.
+For the infected hosts ($H_I$), they recover at rate $\gamma$, and finally we have the recovered hosts ($H_R$).
+
+For the vector, $\Delta$ is the birth rate of the vector and should be equal to ($\Delta = \mu_V$) to assure constant. We assume that the susceptible vectors are infected by the rate $b$ due to contact with the infected human hosts. The infectious vectors than perish at some rate.
+
+## Transmission rate 
+
+For $\beta = a c$, where $a$ is the biting rate per unit time and c is the probability of infection. $b = a \theta$ where $\theta$ is the probability of infecting.
+
+## Next generation method R0 
+
+The R0 in the vector borne disease can be calculated by the next generation method
