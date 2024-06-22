@@ -3,7 +3,6 @@
 model_ross_trito_metapopulation <- function(t, state, param, patch_no, disp.contact) {
         
         with(as.list(c(state, param)), {
-                
         num_patch = patch_no
         
         ###The metapopulation
@@ -93,15 +92,15 @@ model_ross_trito_metapopulation <- function(t, state, param, patch_no, disp.cont
 
 ###BAD PARAM VALUES 
 parameters_n <- c(
-        b_H = 0.005, #Human birth rate
-        b_P = 100, #P.vector birth rate
-        b_S = 100, #S. vector birth rate
-        mu_H = 0.005, #Human death rate
-        mu_P = 100, #P. vector death rate
-        mu_S = 100, #S. vector death rate
+        b_H = 0, #Human birth rate
+        b_P = 0, #P.vector birth rate
+        b_S = 0, #S. vector birth rate
+        mu_H = 0, #Human death rate
+        mu_P = 0, #P. vector death rate
+        mu_S = 0, #S. vector death rate
         
-        a_P =3, #biting rate of the p. vector
-        a_S = 3, #biting rate of the s.vector
+        a_P = 0, #biting rate of the p. vector
+        a_S = 0, #biting rate of the s.vector
         
         phi_P = 0.90, #transmission probability of p. vector
         phi_S = 0.10, #transmission probability of s. vector
@@ -122,17 +121,21 @@ inits_n <- c(H_S = rep(900,3), H_I =rep(100 ,3),
              S_S = rep(15000,3),
              S_I= rep(0,3))
 
-df.contact <- matrix(c(0,1,1,
-                     1,0,0,
-                     0,1,0), ncol =3)
+df.contact <- matrix(c(0,0,0,
+                     0,0,0,
+                     0,0,0), ncol =3)
         
 
 out <- ode(y=inits_n , times=times, patch_no=3, func=model_ross_trito_metapopulation,
            parms=parameters_n,disp.contact=df.contact)
 
 colnames(out)
-plot(out[,'time'],out[,14],type= 'l')
+plot(out[,'time'],out[,2],type= 'l')
 lines(out[,'time'],out[,15],col = 'red')
 lines(out[,'time'],out[,16],col = 'green')
 lines(out[,'time'],out[,20],col = 'blue',type='l')
 lines(out[,'time'],out[,21],col = 'orange', size = 2)
+
+###TAD WORRIES: Dispersal matrix ()
+###Layout (space, create a network, assign edgeweights based on distance-
+### what's the euclidean distance between the two nodes ())

@@ -1,5 +1,9 @@
 library(deSolve)
 library(reshape2)
+
+###One path, no dispersal- simplest form.
+
+
 model_ross_trito <-  function(t, state, param) {
         with(as.list(c(state, param)),{
                 
